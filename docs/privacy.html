@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Privacy Policy · Workspace Link Copier</title>
+  <meta name="description" content="Workspace Link Copier collects no data, sends nothing anywhere and requests no browser permissions.">
+  <meta name="theme-color" content="#1a73e8">
+  <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="./"><img src="assets/icon.svg" alt="" width="32" height="32">Workspace Link Copier</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="./#features">Features</a>
+      <a href="./#install">Install</a>
+      <a class="keep nav-star" href="https://github.com/sgagankumar/workspace-link-copier"><span aria-hidden="true">★</span> Star on GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="prose">
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: 18 November 2026</p>
+
+    <p>Workspace Link Copier is a Chrome extension that copies links to Gmail™ emails and Google Sheets™ cells. It runs entirely inside your browser.</p>
+
+    <h2>What it does with your data</h2>
+    <ul>
+      <li><strong>It collects nothing.</strong> No analytics, tracking, cookies, accounts or sign-in.</li>
+      <li><strong>It sends nothing anywhere.</strong> The extension has no servers and never contacts any.</li>
+      <li><strong>It stores nothing.</strong> Links are held in the open tab's memory only to make the next click faster, and are gone when you close or reload the tab.</li>
+    </ul>
+
+    <h2>The one network request</h2>
+    <p>In Gmail, to find an email's Message-ID, the extension asks <code>mail.google.com</code> for that email's "Show original" page, the same page Gmail shows you under ⋮ → Show original. The request goes from your browser to Gmail using your existing Gmail session, exactly as if you had opened that page yourself. The extension stops reading the page as soon as it finds the <code>Message-ID</code> header, and the content is never stored or sent anywhere else.</p>
+    <p>In Google Sheets the extension makes no network requests at all. It reads the file address and the selected cell from the page.</p>
+
+    <h2>Permissions</h2>
+    <p>The extension requests <strong>no browser permissions</strong>. It runs only on <code>https://mail.google.com/*</code> and <code>https://docs.google.com/spreadsheets/*</code>, to add its button there. It does not use OAuth, the Gmail API or the Drive API, and it never changes sharing settings on your files.</p>
+
+    <h2>Clipboard</h2>
+    <p>When you click the button, the extension writes the link to your clipboard. It never reads your clipboard.</p>
+
+    <h2>Changes</h2>
+    <p>If this policy changes, the new version will be published on this page with a new date. The full history is in the <a href="https://github.com/sgagankumar/workspace-link-copier/commits/main/PRIVACY.md">project's GitHub repository</a>.</p>
+
+    <h2>Contact</h2>
+    <p>Questions or concerns: <a href="https://github.com/sgagankumar/workspace-link-copier/issues">open an issue on GitHub</a>.</p>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="dev">
+      <span>Made by <strong>Gagan Kumar</strong></span>
+      <a href="https://sgagankumar.dev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>sgagankumar.dev</a>
+      <a href="https://github.com/sgagankumar"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>github.com/sgagankumar</a>
+    </div>
+    <p>Workspace Link Copier is not affiliated with or endorsed by Google. Gmail and Google Sheets are trademarks of Google LLC.</p>
+  </div>
+</footer>
+</body>
+</html>

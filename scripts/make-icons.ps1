@@ -84,7 +84,12 @@ foreach ($size in $Sizes) {
     $g.Clear([System.Drawing.Color]::Transparent)
 
     # Same geometry as icon.svg: 128-unit canvas, glyph at translate(28 28) scale(3).
-    $g.ScaleTransform($size / 128.0, $size / 128.0)
+    # The 128px icon is shown in the Chrome Web Store and on chrome://extensions, where Google's
+    # guidelines ask for transparent padding around the artwork: draw it 112px wide, centred.
+    $artwork = if ($size -ge 128) { $size * 112.0 / 128.0 } else { [double]$size }
+    $inset = ($size - $artwork) / 2
+    $g.TranslateTransform($inset, $inset)
+    $g.ScaleTransform($artwork / 128.0, $artwork / 128.0)
     $g.FillEllipse($blue, 0, 0, 128, 128)
     $g.TranslateTransform(28, 28)
     $g.ScaleTransform(3, 3)

@@ -1,6 +1,12 @@
+<p align="center"><img src="store/logo-lockup.png" alt="Workspace Link Copier" width="480"></p>
+
 # Workspace Link Copier
 
-**Copy Email & Cell Links for Gmail™ and Sheets™**
+**Copy Email & Cell Links for Gmail™ and Sheets™** · [Website](https://sgagankumar.github.io/workspace-link-copier/) · [Privacy policy](https://sgagankumar.github.io/workspace-link-copier/privacy.html)
+
+[![GitHub stars](https://img.shields.io/github/stars/sgagankumar/workspace-link-copier?style=social)](https://github.com/sgagankumar/workspace-link-copier/stargazers)
+
+> ⭐ **If this saves you time, please [star the repo](https://github.com/sgagankumar/workspace-link-copier).** It helps others find it.
 
 A Chrome extension (Manifest V3) that adds one Share button, styled like Google's own icon buttons, to Gmail and Google Sheets. One click copies a link that points at one exact thing:
 
@@ -48,17 +54,33 @@ src/gmail.js         Gmail logic
 src/sheets.js        Sheets logic
 styles/content.css   all wlc- styles
 icons/               icon.svg (source) and the PNG sizes
-scripts/make-icons.ps1  dev-only: renders the PNGs on Windows (PowerShell + System.Drawing)
+docs/                project website (GitHub Pages) incl. the hosted privacy policy
+store/               Chrome Web Store images, logo files and listing.md (store/src = HTML templates)
+scripts/make-icons.ps1         dev-only: renders the extension PNG icons (PowerShell + System.Drawing)
+scripts/make-store-assets.ps1  dev-only: renders store/ images and the site's social preview (headless Chrome)
 PRIVACY.md
 ```
 
-To regenerate the icons: `powershell -ExecutionPolicy Bypass -File scripts\make-icons.ps1`.
+To regenerate the images (Windows):
+
+```
+powershell -ExecutionPolicy Bypass -File scripts\make-icons.ps1
+powershell -ExecutionPolicy Bypass -File scripts\make-store-assets.ps1
+```
 
 Debug logging: set `const DEBUG = true` in `src/common.js`.
 
 ## Privacy
 
 No data leaves your browser. See [PRIVACY.md](PRIVACY.md).
+
+## Support the project
+
+Workspace Link Copier is free and open source. If you find it useful, please **[⭐ star it on GitHub](https://github.com/sgagankumar/workspace-link-copier)**. A star helps other people discover it and tells me it's worth keeping up with Google's UI changes. Bug reports and ideas are welcome in [Issues](https://github.com/sgagankumar/workspace-link-copier/issues).
+
+## Developer
+
+Made by **Gagan Kumar** · [sgagankumar.dev](https://sgagankumar.dev) · [GitHub](https://github.com/sgagankumar)
 
 ---
 

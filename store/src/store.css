@@ -1,0 +1,153 @@
+/* Shared styles for the Chrome Web Store / brand image templates (rendered by headless Chrome). */
+
+:root,
+:root:not(#x) {
+  --bg: #ffffff;
+  --surface: #f6f8fc;
+  --surface-2: #eaf0fa;
+  --text: #1f1f1f;
+  --muted: #5f6368;
+  --border: #dadce0;
+  --accent: #1a73e8;
+  --accent-soft: #e8f0fe;
+  --code-bg: #f1f3f4;
+  --mock-bg: #ffffff;
+  --mock-bar: #f6f8fc;
+  --mock-icon: #c4c7c5;
+  --mock-line: #e3e3e3;
+  --icon: #444746;
+  --tooltip-bg: #3c4043;
+  --tooltip-ink: #ffffff;
+  --ok: #188038;
+  --font: "Segoe UI Variable Display", "Segoe UI", system-ui, Roboto, Arial, sans-serif;
+  color-scheme: light;
+}
+
+html,
+body {
+  margin: 0;
+  overflow: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font);
+  color: var(--text);
+  background:
+    radial-gradient(1200px 700px at 100% 0%, #d2e3fc 0%, transparent 60%),
+    radial-gradient(900px 600px at 0% 100%, #e8f0fe 0%, transparent 65%),
+    #f8fafd;
+}
+
+.canvas.blue {
+  color: #fff;
+  background:
+    radial-gradient(900px 500px at 100% 0%, #4c8df6 0%, transparent 60%),
+    radial-gradient(700px 500px at 0% 100%, #1557b0 0%, transparent 70%),
+    #1a73e8;
+}
+
+/* decorative share-graph motif */
+.motif {
+  position: absolute;
+  opacity: 0.08;
+  fill: currentColor;
+  pointer-events: none;
+}
+
+.lockup {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.lockup img {
+  display: block;
+}
+
+.eyebrow {
+  margin: 0 0 14px;
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.headline {
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+}
+
+.sub {
+  margin: 20px 0 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.blue .sub {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* the "copied link" card */
+.copied {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px 20px;
+  border-radius: 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  box-shadow: 0 12px 32px rgba(60, 64, 67, 0.18), 0 2px 6px rgba(60, 64, 67, 0.12);
+  font: 500 15px/1.4 ui-monospace, Consolas, monospace;
+  color: var(--text);
+}
+
+.copied .tick {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #e6f4ea;
+  color: var(--ok);
+  font: 700 18px/1 var(--font);
+}
+
+.copied .label {
+  display: block;
+  font: 600 11px/1 var(--font);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+/* make the website mock crisp and large */
+.mock-zoom {
+  position: absolute;
+  zoom: 1.45;
+}
+
+.mock-zoom .mock {
+  box-shadow: 0 24px 60px rgba(60, 64, 67, 0.22), 0 4px 12px rgba(60, 64, 67, 0.12);
+}
+
+.mock-zoom .demo-share::after {
+  animation: none;
+  opacity: 0.9;
+  transform: none;
+}
+
+.mock-zoom .mock-snackbar[hidden] {
+  opacity: 1;
+  transform: none;
+}

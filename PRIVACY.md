@@ -26,7 +26,9 @@ When you click the button, the extension writes the link to your clipboard. It n
 
 **Contact**
 
-Questions about this policy can be raised through the extension's Chrome Web Store support page.
+Questions or concerns: open an issue at https://github.com/sgagankumar/workspace-link-copier/issues.
+
+Developer: Gagan Kumar · https://sgagankumar.dev
 
 ---
 
