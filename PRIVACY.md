@@ -1,6 +1,6 @@
 # Privacy Policy — Workspace Link Copier
 
-_Last updated: 18 November 2026_
+_Last updated: 19 November 2026_
 
 Workspace Link Copier runs entirely inside your browser.
 
@@ -18,7 +18,7 @@ In Google Sheets the extension makes no network requests at all. It reads the fi
 
 **Permissions**
 
-The extension requests **no browser permissions**. It runs only on `https://mail.google.com/*` and `https://docs.google.com/spreadsheets/*`, to add its button there. It does not use OAuth, the Gmail API or the Drive API, and it never changes sharing settings on your files.
+The extension requests **no browser permissions**: no tabs, storage, cookies, history or anything similar. Its only access is to run on `https://mail.google.com/*` and `https://docs.google.com/spreadsheets/*`, to add its button there. Firefox lists this as access to your data on those two sites. It does not use OAuth, the Gmail API or the Drive API, and it never changes sharing settings on your files.
 
 **Clipboard**
 

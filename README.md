@@ -8,7 +8,7 @@
 
 > ⭐ **If this saves you time, please [star the repo](https://github.com/sgagankumar/workspace-link-copier).** It helps others find it.
 
-A Chrome extension (Manifest V3) that adds one Share button, styled like Google's own icon buttons, to Gmail and Google Sheets. One click copies a link that points at one exact thing:
+A browser extension for **Chrome** and **Firefox** (Manifest V3) that adds one Share button, styled like Google's own icon buttons, to Gmail and Google Sheets. One click copies a link that points at one exact thing:
 
 | Where | Button position | What gets copied |
 |---|---|---|
@@ -17,12 +17,31 @@ A Chrome extension (Manifest V3) that adds one Share button, styled like Google'
 
 A short snackbar at the bottom-left confirms the copy or says what went wrong.
 
-## Install (load unpacked)
+## Install
 
-1. Open `chrome://extensions` in Chrome 111 or newer.
+### Chrome (and Edge, Brave, other Chromium browsers), version 111+
+
+1. Open `chrome://extensions`.
 2. Turn on **Developer mode** (top right).
 3. Click **Load unpacked** and choose this folder (the one containing `manifest.json`).
 4. Reload any Gmail or Sheets tabs that were already open.
+
+### Firefox, version 128+
+
+1. Open `about:debugging#/runtime/this-firefox`.
+2. Click **Load Temporary Add-on…** and choose `manifest.json` in this folder (or in `dist/firefox/` after a build).
+3. Reload any Gmail or Sheets tabs that were already open.
+4. If the button doesn't appear, click the Extensions (puzzle piece) icon in the toolbar and allow Workspace Link Copier on that site.
+
+Firefox removes temporary add-ons when it restarts. A permanent install needs the add-on signed through [addons.mozilla.org](https://addons.mozilla.org/developers/); see [store/listing.md](store/listing.md).
+
+### Building store packages
+
+```
+python scripts/build.py
+```
+
+This writes `dist/chrome/` and `dist/firefox/` (unpacked) plus a zip of each, ready to upload to the Chrome Web Store and addons.mozilla.org. `manifest.json` is the single source. The Firefox manifest is derived from it: the script drops `minimum_chrome_version` and adds Firefox's add-on ID, minimum version (128) and data-collection declaration.
 
 ## Usage
 
@@ -40,7 +59,7 @@ A short snackbar at the bottom-left confirms the copy or says what went wrong.
 
 ## How it works
 
-- Content scripts run in the page's **MAIN world** (`"world": "MAIN"`) so Gmail's `GLOBALS` session key is readable. No `chrome.*` APIs are used.
+- Content scripts run in the page's **MAIN world** (`"world": "MAIN"`, Chrome 111+ / Firefox 128+) so Gmail's `GLOBALS` session key is readable. No `chrome.*`/`browser.*` APIs are used, so the same code runs in both browsers.
 - Gmail: the oldest `[data-message-id]` in the open thread is chosen by its legacy hex id. The script then fetches Gmail's own "Show original" page (same origin, `?ik=…&view=om&permmsgid=…`), streams it until the `Message-ID:` header appears, and caches the result per thread. The work starts as soon as a thread opens, so the click can copy right away.
 - Sheets: the selection is read from the Name Box at click time, the file id from the URL path, and the tab id (`gid`) from the URL.
 - All UI is built with `createElement`/`createElementNS` (Gmail enforces Trusted Types). No `innerHTML`, no `DOMParser`.
@@ -55,7 +74,8 @@ src/sheets.js        Sheets logic
 styles/content.css   all wlc- styles
 icons/               icon.svg (source) and the PNG sizes
 docs/                project website (GitHub Pages) incl. the hosted privacy policy
-store/               Chrome Web Store images, logo files and listing.md (store/src = HTML templates)
+store/               store images, logo files and listing.md for Chrome Web Store + AMO (store/src = HTML templates)
+scripts/build.py               builds dist/ packages + zips for Chrome and Firefox (Python 3, no dependencies)
 scripts/make-icons.ps1         dev-only: renders the extension PNG icons (PowerShell + System.Drawing)
 scripts/make-store-assets.ps1  dev-only: renders store/ images and the site's social preview (headless Chrome)
 PRIVACY.md

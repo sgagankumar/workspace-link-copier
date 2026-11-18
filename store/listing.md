@@ -1,10 +1,17 @@
-# Chrome Web Store listing — Workspace Link Copier
+# Store listings — Workspace Link Copier
 
-Everything needed to fill in the Chrome Web Store Developer Dashboard. Images are in this folder; regenerate them with `scripts/make-store-assets.ps1`.
+Everything needed for the **Chrome Web Store** Developer Dashboard and **addons.mozilla.org (AMO)**. Images are in this folder; regenerate them with `scripts/make-store-assets.ps1`.
 
-## Package
+## Packages
 
-Upload a zip containing only: `manifest.json`, `src/`, `styles/`, `icons/` (no docs, store or scripts folders).
+Run `python scripts/build.py`, then upload:
+
+- Chrome Web Store: `dist/workspace-link-copier-chrome-<version>.zip`
+- AMO: `dist/workspace-link-copier-firefox-<version>.zip`
+
+Both contain only `manifest.json`, `src/`, `styles/` and `icons/`. Bump `version` in `manifest.json` before each upload.
+
+# Chrome Web Store
 
 ## Store listing tab
 
@@ -71,6 +78,41 @@ Workspace Link Copier is not affiliated with or endorsed by Google. Gmail and Go
 - **Unlisted**: only people with the link can install it.
 - **Private**: only users in your Google Workspace domain (an admin can force-install it).
 - **Public**: anyone can find it in the store.
+
+# Firefox Add-ons (AMO)
+
+Submit at https://addons.mozilla.org/developers/addon/submit/. Choose **On this site** for a public listing, or **On your own** to get a signed `.xpi` you distribute yourself. Either way the add-on is signed and installs permanently, unlike a temporary add-on.
+
+| Field | Value |
+|---|---|
+| Add-on ID (set by the build) | `workspace-link-copier@sgagankumar.dev` |
+| Minimum Firefox (set by the build) | 128.0 (first version with `"world": "MAIN"` content scripts) |
+| Compatibility | Firefox for desktop only. Gmail and Sheets on Android use a different UI. |
+| Name | Workspace Link Copier |
+| Summary (≤ 250 chars) | Copy Email & Cell Links for Gmail™ and Sheets™ in one click. A Share button copies a link to the exact email or cell you're looking at. No permissions; nothing leaves your browser. |
+| Description | Same text as the Chrome description above |
+| Categories | Productivity (primary) |
+| Tags | gmail, google sheets, link, share, productivity |
+| Homepage | https://sgagankumar.github.io/workspace-link-copier/ |
+| Support site | https://github.com/sgagankumar/workspace-link-copier/issues |
+| License | Pick the license you add to the repo (AMO asks for one) |
+| Privacy policy | Paste the text of `PRIVACY.md`, or link https://sgagankumar.github.io/workspace-link-copier/privacy.html |
+| Icon | `../icons/icon128.png` (AMO also accepts 64×64) |
+| Screenshots | `screenshot-1-gmail.png`, `screenshot-2-sheets.png`, `screenshot-3-privacy.png` |
+
+**Data collection** is declared in the manifest as `"data_collection_permissions": { "required": ["none"] }`, which AMO requires for new add-ons. AMO will show "This add-on doesn't collect data."
+
+**Source code:** the code isn't minified or bundled, so AMO doesn't need a separate source upload.
+
+**Notes for reviewers** (optional field):
+
+```
+No build step, no minification, no remote code. Content scripts run in the MAIN world on
+mail.google.com and docs.google.com/spreadsheets so they can read Gmail's page variable
+GLOBALS[9] (the "ik" session key). On Gmail the only network request is a same-origin fetch of
+the open email's "Show original" page (mail.google.com/mail/?ik=…&view=om&permmsgid=…) to read
+its Message-ID header. Nothing is stored or transmitted elsewhere.
+```
 
 ## Developer
 

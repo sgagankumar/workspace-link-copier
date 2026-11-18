@@ -779,6 +779,11 @@ h3 {
   }
 }
 
+.browser-head {
+  margin: 0 0 16px;
+  font-size: 22px;
+}
+
 .steps li {
   counter-increment: step;
   background: var(--bg);

@@ -26,6 +26,9 @@ Material 3 standard icon button: 40×40 circle, 24px icon, transparent, hover st
 Copy the neighbouring Google icon's computed color (and size/margins) so it matches light, dark and themed UIs.
 Google‑style tooltip (§6.3) and Material snackbar toast bottom‑left (§6.4).
 Use the page's existing "Google Sans"/Roboto fonts; never load fonts or remote assets.
+Browsers (Chrome 111+ and Firefox 128+)
+The same src/ runs in both; never use chrome.* or browser.* APIs.
+manifest.json is the Chrome manifest and must stay free of Firefox-only keys (Chrome warns about unknown keys). Firefox keys (browser_specific_settings.gecko: id, strict_min_version, data_collection_permissions) are added by scripts/build.py, which writes dist/chrome and dist/firefox plus store zips.
 Out of scope
 
 OAuth, Gmail/Drive APIs, sharing‑permission changes, Docs, Slides, popups, options pages, context menus.

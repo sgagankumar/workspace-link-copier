@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Workspace Link Copier</title>
-  <meta name="description" content="Copy Email & Cell Links for Gmail™ and Sheets™ in one click. A free Chrome extension with no permissions; nothing leaves your browser.">
+  <meta name="description" content="Copy Email & Cell Links for Gmail™ and Sheets™ in one click. A free extension for Chrome and Firefox with no permissions; nothing leaves your browser.">
   <meta name="theme-color" content="#1a73e8">
   <link rel="icon" type="image/svg+xml" href="assets/icon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -176,8 +176,9 @@
       <div class="section-head">
         <p class="eyebrow">Install</p>
         <h2 id="install-title">Up and running in a minute</h2>
-        <p>Works in Chrome 111 or newer.</p>
+        <p>Works in Chrome 111+ (and Edge, Brave and other Chromium browsers) and in Firefox 128+.</p>
       </div>
+      <h3 class="browser-head">Chrome</h3>
       <ol class="steps">
         <li>
           <h3>Download</h3>
@@ -196,7 +197,28 @@
           <p>Reload any open Gmail or Sheets tabs. The Share button appears in the top-right header.</p>
         </li>
       </ol>
-      <p class="note">Updates don't install automatically yet. To update, download the new .zip, replace the folder, and click reload on the extension in <code>chrome://extensions</code>. You can also use the button with the keyboard: <kbd>Tab</kbd> to it and press <kbd>Enter</kbd>.</p>
+
+      <h3 class="browser-head">Firefox</h3>
+      <ol class="steps">
+        <li>
+          <h3>Download</h3>
+          <p><a href="https://github.com/sgagankumar/workspace-link-copier/archive/refs/heads/main.zip">Download the .zip</a> and unzip it.</p>
+        </li>
+        <li>
+          <h3>Open debugging</h3>
+          <p>Go to <code>about:debugging#/runtime/this-firefox</code>.</p>
+        </li>
+        <li>
+          <h3>Load the add-on</h3>
+          <p>Click <strong>Load Temporary Add-on…</strong> and choose <code>manifest.json</code> in the unzipped folder.</p>
+        </li>
+        <li>
+          <h3>Reload your tabs</h3>
+          <p>Reload Gmail or Sheets. If the button doesn't appear, allow the add-on on that site from the Extensions (puzzle piece) menu.</p>
+        </li>
+      </ol>
+
+      <p class="note">Updates don't install automatically yet. In Chrome, download the new .zip, replace the folder and click reload on the extension in <code>chrome://extensions</code>. Firefox removes temporary add-ons when it restarts, so load it again after a restart until the add-on is available on addons.mozilla.org. You can also use the button with the keyboard: <kbd>Tab</kbd> to it and press <kbd>Enter</kbd>.</p>
     </div>
   </section>
 
@@ -205,7 +227,7 @@
       <div class="section-head">
         <p class="eyebrow">Privacy</p>
         <h2 id="privacy-title">Everything stays in your browser</h2>
-        <p>The extension has no servers, no analytics, and asks Chrome for no permissions.</p>
+        <p>The extension has no servers, no analytics, and asks your browser for no permissions.</p>
       </div>
       <div class="pillars">
         <div class="card">
