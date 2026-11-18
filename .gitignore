@@ -1,0 +1,13 @@
+# Build / packaging output
+dist/
+*.zip
+*.crx
+*.pem
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Local Claude Code settings
+.claude/settings.local.json
